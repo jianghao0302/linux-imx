@@ -1,0 +1,228 @@
+{
+    // VS Code settings for Linux kernel workspace:
+    // - 隐藏常见的编译产物与生成文件（Explorer 显示过滤）
+    // - 在搜索时排除这些文件（Search 过滤）
+    // - 可配置 dotconfig 文件路径（自定义设置）
+    //
+    // 将此文件保存为 .vscode/settings.json
+
+    // Explorer 中要隐藏的文件 / 目录
+    "files.exclude": {
+        "**/.git": true,
+        "**/.cache": true,
+        "**/.tmp_versions": true,
+        "**/build/**": true,
+        "**/out/**": true,
+        "**/tmp/**": true,
+
+        // 常见内核编译产物
+        "**/*.o": true,
+        "**/*.ko": true,
+        "**/*.cmd": true,
+        "**/*.mod.c": true,
+        "**/*.mod": true,
+        "**/*.d": true,
+        "**/*.tmp": true,
+        "**/*.dtb": true,
+
+        // 映像与符号表
+        "**/vmlinux": true,
+        "**/System.map": true,
+        "**/Image": true,
+        "**/bzImage": true,
+        "**/modules.order": true,
+        "**/Module.symvers": true,
+
+        "**/.*":true,
+        "COPYING":true,
+        "CREDITS":true,
+        "MAINTAINERS":true,
+        "MAINTAINERS.NXP":true,
+        "README":true,
+        "SBOM.spdx.json":true,
+        "LICENSES":true,
+        "samples":true,
+
+        "arch/alpha":true,
+        "arch/arc":true,
+        "arch/[c-x]*":true,
+        "arch/arm64":true,
+        "arch/arm/mach-[a-h]*":true,
+        "arch/arm/mach-ix*":true,
+        "arch/arm/mach-[j-z]*":true,
+        "arch/arm/boot/dts/[a-m]*":true,
+        "arch/arm/boot/dts/nspire":true,
+        "arch/arm/boot/dts/nuvoton":true,
+        "arch/arm/boot/dts/nvidia":true,
+        "arch/arm/boot/dts/[o-z]*":true,
+        "arch/arm/boot/dts/nxp/lpc":true,
+        "arch/arm/boot/dts/nxp/ls":true,
+        "arch/arm/boot/dts/nxp/mxs":true,
+        "arch/arm/boot/dts/nxp/vf":true,
+        "arch/arm/boot/dts/nxp/imx/e*.dts*":true,
+        "arch/arm/boot/dts/nxp/imx/imx1*":true,
+        "arch/arm/boot/dts/nxp/imx/imx6d*":true,
+        "arch/arm/boot/dts/nxp/imx/imx6q*":true,
+        "arch/arm/boot/dts/nxp/imx/imx6s*":true,
+        "arch/arm/boot/dts/nxp/imx/imx6ulz*":true,
+        "arch/arm/boot/dts/nxp/imx/imx[7-9]*":true,
+        "arch/arm/boot/dts/nxp/imx/imx[0-5]*":true,
+        "arch/arm/boot/dts/nxp/imx/imxrt*":true,
+        "arch/arm/boot/dts/nxp/imx/mba*":true,
+
+        "arch/arm/configs/[a-h]*":true,
+        "arch/arm/configs/[j-z]*":true,
+        "arch/arm/configs/i[n-z]*":true,
+        "arch/arm/configs/imxrt*":true,
+    },
+
+    // 在全局搜索时排除相同的编译产物（加快搜索）
+    "search.exclude": {
+        "**/.git": true,
+        "**/.cache": true,
+        "**/build/**": true,
+        "**/out/**": true,
+        "**/tmp/**": true,
+
+        // 常见内核编译产物
+        "**/*.o": true,
+        "**/*.ko": true,
+        "**/*.cmd": true,
+        "**/*.mod.c": true,
+        "**/*.mod": true,
+        "**/*.d": true,
+        "**/*.tmp": true,
+        "**/*.dtb": true,
+
+        // 映像与符号表
+        "**/vmlinux": true,
+        "**/System.map": true,
+        "**/Image": true,
+        "**/bzImage": true,
+        "**/modules.order": true,
+        "**/Module.symvers": true,
+
+        "**/.*":true,
+        "COPYING":true,
+        "CREDITS":true,
+        "MAINTAINERS":true,
+        "MAINTAINERS.NXP":true,
+        "README":true,
+        "SBOM.spdx.json":true,
+        "LICENSES":true,
+        "samples":true,
+
+        "arch/alpha":true,
+        "arch/arc":true,
+        "arch/[c-x]*":true,
+        "arch/arm64":true,
+        "arch/arm/mach-[a-h]*":true,
+        "arch/arm/mach-ix*":true,
+        "arch/arm/mach-[j-z]*":true,
+        "arch/arm/boot/dts/[a-m]*":true,
+        "arch/arm/boot/dts/nspire":true,
+        "arch/arm/boot/dts/nuvoton":true,
+        "arch/arm/boot/dts/nvidia":true,
+        "arch/arm/boot/dts/[o-z]*":true,
+        "arch/arm/boot/dts/nxp/lpc":true,
+        "arch/arm/boot/dts/nxp/ls":true,
+        "arch/arm/boot/dts/nxp/mxs":true,
+        "arch/arm/boot/dts/nxp/vf":true,
+        "arch/arm/boot/dts/nxp/imx/e*.dts*":true,
+        "arch/arm/boot/dts/nxp/imx/imx1*":true,
+        "arch/arm/boot/dts/nxp/imx/imx6d*":true,
+        "arch/arm/boot/dts/nxp/imx/imx6q*":true,
+        "arch/arm/boot/dts/nxp/imx/imx6s*":true,
+        "arch/arm/boot/dts/nxp/imx/imx6ulz*":true,
+        "arch/arm/boot/dts/nxp/imx/imx[7-9]*":true,
+        "arch/arm/boot/dts/nxp/imx/imx[0-5]*":true,
+        "arch/arm/boot/dts/nxp/imx/imxrt*":true,
+        "arch/arm/boot/dts/nxp/imx/mba*":true,
+
+        "arch/arm/configs/[a-h]*":true,
+        "arch/arm/configs/[j-z]*":true,
+        "arch/arm/configs/i[n-z]*":true,
+        "arch/arm/configs/imxrt*":true,
+    },
+
+    // 文件系统监视排除（减少资源占用）
+    "files.watcherExclude": {
+        "**/build/**": true,
+        "**/out/**": true,
+        "**/tmp/**": true,
+        "**/include/generated/**": true,
+
+        // 常见内核编译产物
+        "**/*.o": true,
+        "**/*.ko": true,
+        "**/*.cmd": true,
+        "**/*.mod.c": true,
+        "**/*.mod": true,
+        "**/*.d": true,
+        "**/*.tmp": true,
+        "**/*.dtb": true,
+
+        // 映像与符号表
+        "**/vmlinux": true,
+        "**/System.map": true,
+        "**/Image": true,
+        "**/bzImage": true,
+        "**/modules.order": true,
+        "**/Module.symvers": true,
+
+        "**/.*":true,
+        "COPYING":true,
+        "CREDITS":true,
+        "MAINTAINERS":true,
+        "MAINTAINERS.NXP":true,
+        "README":true,
+        "SBOM.spdx.json":true,
+        "LICENSES":true,
+        "samples":true,
+
+        "arch/alpha":true,
+        "arch/arc":true,
+        "arch/[c-x]*":true,
+        "arch/arm64":true,
+        "arch/arm/mach-[a-h]*":true,
+        "arch/arm/mach-ix*":true,
+        "arch/arm/mach-[j-z]*":true,
+        "arch/arm/boot/dts/[a-m]*":true,
+        "arch/arm/boot/dts/nspire":true,
+        "arch/arm/boot/dts/nuvoton":true,
+        "arch/arm/boot/dts/nvidia":true,
+        "arch/arm/boot/dts/[o-z]*":true,
+        "arch/arm/boot/dts/nxp/lpc":true,
+        "arch/arm/boot/dts/nxp/ls":true,
+        "arch/arm/boot/dts/nxp/mxs":true,
+        "arch/arm/boot/dts/nxp/vf":true,
+        "arch/arm/boot/dts/nxp/imx/e*.dts*":true,
+        "arch/arm/boot/dts/nxp/imx/imx1*":true,
+        "arch/arm/boot/dts/nxp/imx/imx6d*":true,
+        "arch/arm/boot/dts/nxp/imx/imx6q*":true,
+        "arch/arm/boot/dts/nxp/imx/imx6s*":true,
+        "arch/arm/boot/dts/nxp/imx/imx6ulz*":true,
+        "arch/arm/boot/dts/nxp/imx/imx[7-9]*":true,
+        "arch/arm/boot/dts/nxp/imx/imx[0-5]*":true,
+        "arch/arm/boot/dts/nxp/imx/imxrt*":true,
+        "arch/arm/boot/dts/nxp/imx/mba*":true,
+
+        "arch/arm/configs/[a-h]*":true,
+        "arch/arm/configs/[j-z]*":true,
+        "arch/arm/configs/i[n-z]*":true,
+        "arch/arm/configs/imxrt*":true,
+    },
+
+    // 可选：为内核相关编辑体验提供文件类型关联（方便语法/高亮）
+    "files.associations": {
+        "*.mod.c": "c",
+        "*.dts": "dts",
+        "Kconfig": "properties",
+        "Kconfig.*": "properties",
+        
+    },
+
+    "C_Cpp.default.dotConfig": "${workspaceFolder}/.config",
+    "C_Cpp.default.intelliSenseMode": "gcc-arm",
+    "C_Cpp.default.mergeConfigurations": true
+}

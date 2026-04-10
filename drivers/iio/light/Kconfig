@@ -733,4 +733,15 @@ config ZOPT2201
 	  To compile this driver as a module, choose M here: the
 	  module will be called zopt2201.
 
+config AP3216C
+	tristate "AP3216C 3-in-1 ALS, PS and IRLED sensor"
+	depends on I2C
+	help
+	  The AP3216C is an integrated ALS & PS module that includes a digital 
+	  ambient light sensor [ALS], a proximity sensor [PS], and an IR LED in 
+	  a single package.
+
+	  To compile this driver as a module, choose M here: the module will be 
+	  called ap3216c.
+
 endmenu

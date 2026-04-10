@@ -83,7 +83,7 @@ seq_vprintf(struct seq_file *m, const char *f, va_list args)
 }
 #    endif
 
-static int
+static int __printf(2, 3)
 debugfs_printf(IN void *obj, IN const char *fmt, ...)
 {
     va_list args;

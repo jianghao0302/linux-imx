@@ -126,17 +126,21 @@ put_enet_node:
 
 #if !defined(CONFIG_SOC_IMX6SL)
 u32 imx6_lpddr2_freq_change_start, imx6_lpddr2_freq_change_end;
+void mx6_lpddr2_freq_change(u32 freq, int bus_freq_mode);
 void mx6_lpddr2_freq_change(u32 freq, int bus_freq_mode) {}
 #endif
 
 #if !defined(CONFIG_SOC_IMX6SLL)
+void imx6sll_lpddr2_freq_change(u32 freq, int bus_freq_mode);
 void imx6sll_lpddr2_freq_change(u32 freq, int bus_freq_mode) {}
 #endif
 
-#if !defined(CONFIG_SOC_IMX6SX) && !defined(CONFIG_SOC_IMX6UL)
+#if !defined(CONFIG_SOC_IMX6SX)
 u32 imx6_up_ddr3_freq_change_start, imx6_up_ddr3_freq_change_end;
 struct imx6_busfreq_info {
 } __aligned(8);
+void imx6_up_ddr3_freq_change(struct imx6_busfreq_info *busfreq_info);
+void imx6_up_lpddr2_freq_change(u32 freq, int bus_freq_mode);
 void imx6_up_ddr3_freq_change(struct imx6_busfreq_info *busfreq_info) {}
 void imx6_up_lpddr2_freq_change(u32 freq, int bus_freq_mode) {}
 #endif
@@ -146,12 +150,24 @@ u32 mx6_ddr3_freq_change_start, mx6_ddr3_freq_change_end;
 u32 mx6q_lpddr2_freq_change_start, mx6q_lpddr2_freq_change_end;
 u32 wfe_smp_freq_change_start, wfe_smp_freq_change_end;
 void mx6_ddr3_freq_change(u32 freq, void *ddr_settings,
+	bool dll_mode, void *iomux_offsets);
+void mx6q_lpddr2_freq_change(u32 freq, void *ddr_settings);
+void wfe_smp_freq_change(u32 cpuid, u32 *ddr_freq_change_done);
+void mx6_ddr3_freq_change(u32 freq, void *ddr_settings,
 	bool dll_mode, void *iomux_offsets) {}
 void mx6q_lpddr2_freq_change(u32 freq, void *ddr_settings) {}
 void wfe_smp_freq_change(u32 cpuid, u32 *ddr_freq_change_done) {}
 #endif
 
+#if !defined(CONFIG_SOC_IMX6Q) && !defined(CONFIG_SOC_IMX6SX)
+void imx_smp_wfe_optee(u32 cpuid, u32 status_addr);
+u32 imx_smp_wfe_optee_end;
+void imx_smp_wfe_optee(u32 cpuid, u32 status_addr) {}
+#endif
+
 #if !defined(CONFIG_SOC_IMX7D)
+void imx7_smp_wfe(u32 cpuid, u32 ocram_base);
+void imx7d_ddr3_freq_change(u32 freq);
 void imx7_smp_wfe(u32 cpuid, u32 ocram_base) {}
 void imx7d_ddr3_freq_change(u32 freq) {}
 #endif

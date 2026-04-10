@@ -159,11 +159,11 @@ _AppendIndent(IN gctINT Indent, IN char *Buffer, IN int BufferSize)
     return len;
 }
 
-static gctUINT
+static gctUINT __printf(3, 0)
 _PrintString(IN gcsBUFFERED_OUTPUT_PTR OutputBuffer,
              IN gctINT                 Indent,
              IN gctCONST_STRING        Message,
-             IN gctPOINTER             Data,
+             IN gctARGUMENTS          *Data,
              IN char                   Buffer[],
              IN gctUINT                Size)
 {
@@ -260,7 +260,7 @@ _GetOutputBuffer(void)
     return outputBuffer;
 }
 
-static void
+static void __printf(1, 0)
 _Print(IN gctCONST_STRING Message, IN gctARGUMENTS *Arguments)
 {
     gcsBUFFERED_OUTPUT_PTR outputBuffer;
@@ -285,7 +285,7 @@ _Print(IN gctCONST_STRING Message, IN gctARGUMENTS *Arguments)
     /* Print the message. */
     len += _PrintString(outputBuffer,
                         outputBuffer->indent,
-                        Message, ((gctPOINTER)Arguments), ptr,
+                        Message, Arguments, ptr,
                         gcmSIZEOF(buffer) - outputBuffer->indent - len);
 
     gcmkOUTPUT_STRING(buffer);
@@ -357,7 +357,7 @@ extern volatile unsigned int g_nQnxInIsrs;
  **      Nothing.
  */
 
-void
+void __printf(1, 2)
 gckOS_Print(IN gctCONST_STRING Message, ...)
 {
     gcmDEBUGPRINT(Message);
@@ -385,7 +385,7 @@ gckOS_Print(IN gctCONST_STRING Message, ...)
  **      Nothing.
  */
 
-void
+void __printf(2, 3)
 gckOS_DebugTrace(IN gctUINT32 Level, IN gctCONST_STRING Message, ...)
 {
     if (Level > _debugLevel)
@@ -419,7 +419,7 @@ gckOS_DebugTrace(IN gctUINT32 Level, IN gctCONST_STRING Message, ...)
  **      Nothing.
  */
 
-void
+void __printf(3, 4)
 gckOS_DebugTraceZone(IN gctUINT32 Level, IN gctUINT32 Zone,
                      IN gctCONST_STRING Message, ...)
 {
@@ -467,7 +467,7 @@ gckOS_DebugBreak(void)
  **
  **      Nothing.
  */
-void
+void __printf(1, 2)
 gckOS_DebugFatal(IN gctCONST_STRING Message, ...)
 {
     gcmkPRINT_VERSION();
@@ -792,7 +792,7 @@ static gctCHAR _dumpStorage[512];
  **
  **      Nothing.
  */
-void
+void __printf(2, 3)
 gckOS_Dump(IN gckOS Os, IN gctCONST_STRING Format, ...)
 {
     char         buffer[256];

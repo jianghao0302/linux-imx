@@ -1,0 +1,10 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+/*
+ * Copyright 2025-2026 NXP
+ */
+
+/dts-v1/;
+
+#include "imx952.dtsi"
+#include "imx952-evk.dtsi"
+

@@ -1,0 +1,40 @@
+/* SPDX-License-Identifier: GPL-2.0+ */
+/*
+ * Copyright 2024 NXP
+ */
+
+#ifndef __SE_API_H__
+#define __SE_API_H__
+
+#include <linux/types.h>
+
+#define SOC_ID_OF_IMX8ULP		0x084D
+#define SOC_ID_OF_IMX8DXL		0xE
+#define SOC_ID_OF_IMX8QM		0x1
+#define SOC_ID_OF_IMX8QXP		0x2
+#define SOC_ID_OF_IMX93			0x9300
+#define SOC_ID_OF_IMX91			0x9100
+#define SOC_ID_OF_IMX941		0x9410
+#define SOC_ID_OF_IMX942		0x9420
+#define SOC_ID_OF_IMX943		0x9430
+#define SOC_ID_OF_IMX95			0x9500
+#define SOC_ID_OF_IMX937		0x9370
+#define SOC_ID_OF_IMX952		0x9520
+
+/* To check if the SoC belongs to i.MX 94 family */
+#define SOC_ID_OF_IMX94			0x9400
+#define SOC_ID_MASK_IMX94		0xFF00
+
+#define OTP_UNIQ_ID			0x01
+#define OTFAD_CONFIG			0x2
+
+void *imx_get_se_data_info(uint32_t soc_id, u32 idx);
+
+int imx_se_write_fuse(void *se_if_data, uint16_t fuse_index,
+		   u32 value, bool block);
+int imx_se_voltage_change_req(void *se_if_data, void *regulator_soc_reg,
+			      int new_uV, int tol_uV);
+int imx_se_read_fuse(void *se_if_data,
+		     uint16_t fuse_id, u32 *value);
+
+#endif /* __SE_API_H__ */
